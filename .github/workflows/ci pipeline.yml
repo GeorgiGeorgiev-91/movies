@@ -21,8 +21,12 @@ jobs:
       with:
         node-version: 18.x
         cache: 'npm'
-    - run: npm install
-    - run: npm run test:unit
+    - name: Installing NPM
+      run: npm install
+    - name: Running Unit Tests
+      run: npm run test:unit
+    - name: Display Softuni Username
+      run: echo "XopxePPV"
 
   deploy:
     needs: build
@@ -44,6 +48,9 @@ jobs:
         with:
           node-version: 18.x
           cache: 'npm'
-      - run: npm install
-      - run: npx playwright install --with-deps
-      - run: npm run test:ui
+      - name: Installing NPM
+        run: npm install
+      - name: Installing Playwright Browsers
+        run: npx playwright install --with-deps
+      - name: Running UI Tests
+        run: npm run test:ui
